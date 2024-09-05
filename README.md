@@ -45,9 +45,10 @@
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
-| status_id          | integer    | null: false |
+| decision_id        | integer    | null: false |
 | comment            | text       |             |
-<!-- | user               | references | null: false, foreign_key: true | -->
+| admission_date     | date       | null: false |
+| dr_id              | integer    | null: false |
 | case               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
