@@ -49,8 +49,10 @@
   justify-content: space-between;
 }
 
-.messages {
+.main-content {
   height: calc(100vh - 100px);
+  display: flex;              /* フレックスコンテナとして設定 */
+  flex-direction: column;     /* 子要素を縦に並べる */
 }
 
 /*********************************/
@@ -78,7 +80,7 @@
 
 /*********************************/
 
-/* 右側の文字を入れる作業 */
+/* 右側上部の文字を入れる作業 */
 
 a {
   text-decoration: none;
@@ -121,3 +123,96 @@ a {
   text-align: center;      /* テキストを中央揃え */
   font-size: 16px;         /* フォントサイズを指定 */
 }
+
+/*********************************/
+/* 右下メインコンテンツの中身ベース */
+
+.before-judge,
+.after-judge {
+    flex: 1;                   /* 各セクションが親コンテナの高さを半分ずつ */
+    overflow: auto;            /* 内容が溢れた場合にスクロール */
+    padding: 10px;
+}
+
+/* 見出しと段落のスタイル */
+.before-judge h2,
+.after-judge h2 {
+    margin-left: 20px;        /* 左に余白を追加 */
+    margin-top: 20px;         /* 上に余白を追加 */
+    font-weight: bold;         /* 太字に設定 */
+    font-size: 1.2em;          /* 少し大きな文字サイズに設定 */
+}
+
+/* 横線のスタイル */
+.divider {
+  margin-left: 20px;        /* 左に余白を追加 */
+  margin-right: 20px;       /* 右に余白を追加 */
+  border: none;             /* デフォルトのボーダーを削除 */
+  border-top: 1px solid #e0dddd; /* 上に2pxのソリッドな線を追加 */
+  margin-top: 10px;         /* 上に余白を追加 */
+}
+
+
+.before-judge p,
+.after-judge p {
+    margin-left: 20px;        /* 左に余白を追加 */
+    margin-top: 10px;         /* 上に余白を追加 */
+}
+
+/* 判定前セクションのスタイル */
+
+.before-judge {
+    background-color: #fafbfb; /* 背景色 */
+    border-bottom: 1px solid #dcdcdc; /* 最後消す。下に境界線を追加 */
+}
+
+/* 判定後セクションのスタイル */
+
+.after-judge {
+    background-color: #fafbfb; /* 背景色 */
+}
+
+/*********************************/
+/* ここから右下メインコンテンツの中身データを出す用*/
+
+.table-container {
+  overflow-y: auto;
+  height: 400px; /* 高さを指定、スクロール可能 */
+  border: 0.5px solid #ddd;
+  padding: 0 30px; /* 左右のパディングを指定 */
+  box-sizing: border-box; /* パディングを含めたサイズ計算 */
+}
+
+table {
+  width: calc(100% - 60px); /* パディングの分を引いた幅 */
+  margin: 0 auto; /* テーブルを中央に配置 */
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 12px; /* ここで文字サイズを指定 */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  color: whitesmoke;
+  background-color: #858a8b; /* ヘッダーの背景色 */
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f7f8dd; /* マウスオーバー時の背景色 */
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #e0f7fa; /* ヘッダーの背景色 */
+  z-index: 1; /* ヘッダーが他のコンテンツの上に表示されるようにします */
+}
+
+/* ここまで右下メインコンテンツの中身データを出す用*/
+/*********************************/
