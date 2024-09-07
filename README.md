@@ -13,11 +13,11 @@
 
 ### Association
 
-- has_many :cases
+- has_many :referrals
 - has_many :actions
 
 
-## cases テーブル
+## referrals テーブル
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
@@ -49,13 +49,13 @@
 | comment            | text       |             |
 | admission_date     | date       | null: false |
 | dr_id              | integer    | null: false |
-| case               | references | null: false, foreign_key: true |
+| referral               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :case
+- belongs_to :referral
 
 
 

@@ -1,0 +1,103 @@
+/* 全体 */
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/*********************************/
+/* ここで2分割 */
+
+/* 左側 */
+.side-menu {
+  width: 200px;
+  background-color: #928f8f;
+}
+
+/* 右側 */
+.main {
+  width: calc(100% - 200px);
+  background-color: #ffffff;
+}
+
+/*********************************/
+/* ここから4分割 */
+
+/******************************************************** 
+  ヘッダー
+********************************************************/
+
+.side-header {
+  height: 100px;
+  background-color: #332c2c;
+  display: flex;
+  align-items: center;
+}
+
+.groups {
+  height: calc(100vh - 100px);
+}
+
+/* 右側の構成 */
+.main-header {
+  height: 100px;
+  background-color: #595959;
+  border-bottom: 1px solid #595959;
+  display: flex;
+  padding: 0 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.messages {
+  height: calc(100vh - 100px);
+}
+
+/*********************************/
+
+/* 左側の文字を入れる作業 */
+
+.side-box {
+  height: 30px;
+  width: 260px;
+  margin: 0 20px;       /* 上下0px 左右20pxの余白 */
+  align-items: center;  /* 縦方向の中央揃え */
+  display: flex;
+  font-weight: bold;    /* 太文字 */
+}
+
+.app-name {
+  color: #ffffff;
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center;     /* 縦方向の中央揃え */
+  font-size: 17px;         /* フォントサイズを指定 */
+}
+
+/*********************************/
+
+/* 右側の文字を入れる作業 */
+
+a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.current-group {
+  color: #eeeeee;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.member {
+  font-size: 15px;
+  color: #eeeeee;
+  display: flex;
+}
+
+.edit-btn {
+  font-size: 12px;
+  border: 1px solid #eeeeee;
+  padding: 10px 15px;
+}
+
+/* ここまでヘッダー */
+/*********************************/
