@@ -5,12 +5,12 @@
 }
 
 /*********************************/
-/* ここで2分割 */
+/* ここで左右を2分割 */
 
 /* 左側 */
 .side-menu {
   width: 200px;
-  background-color: #928f8f;
+  background-color: #b8b4b4;
 }
 
 /* 右側 */
@@ -26,6 +26,7 @@
   ヘッダー
 ********************************************************/
 
+/* 左上 */
 .side-header {
   height: 100px;
   background-color: #332c2c;
@@ -33,11 +34,11 @@
   align-items: center;
 }
 
-.groups {
+.side-bar {
   height: calc(100vh - 100px);
 }
 
-/* 右側の構成 */
+/* 右上 */
 .main-header {
   height: 100px;
   background-color: #595959;
@@ -63,6 +64,9 @@
   align-items: center;  /* 縦方向の中央揃え */
   display: flex;
   font-weight: bold;    /* 太文字 */
+  display: flex;           /* Flexboxを使用 */
+  align-items: center;     /* 縦方向の中央揃え */
+  justify-content: center; /* 横方向の中央揃え */
 }
 
 .app-name {
@@ -93,7 +97,7 @@ a {
   display: flex;
 }
 
-.edit-btn {
+.logout-btn {
   font-size: 12px;
   border: 1px solid #eeeeee;
   padding: 10px 15px;
@@ -101,3 +105,19 @@ a {
 
 /* ここまでヘッダー */
 /*********************************/
+/* ここからサイドバー */
+
+
+.menu-box {
+  display: flex;           /* Flexboxを使用 */
+  flex-direction: column;  /* 縦方向に並べる */
+  align-items: center;     /* 中央揃え（横方向） */
+  margin: 50px 0;          /* 上下にマージンを追加 */
+  height: 100%;            /* 高さを100%に設定（親要素の高さに依存） */
+}
+
+.category-name {
+  margin: 10px 0;          /* 上下にマージンを追加 */
+  text-align: center;      /* テキストを中央揃え */
+  font-size: 16px;         /* フォントサイズを指定 */
+}
