@@ -13,11 +13,11 @@
 
 ### Association
 
-- has_many :cases
+- has_many :referrals
 - has_many :actions
 
 
-## cases テーブル
+## referrals テーブル
 
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
@@ -49,13 +49,13 @@
 | comment            | text       |             |
 | admission_date     | date       | null: false |
 | dr_id              | integer    | null: false |
-| case               | references | null: false, foreign_key: true |
+| referral               | references | null: false, foreign_key: true |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :case
+- belongs_to :referral
 
 
 
@@ -65,6 +65,10 @@ Support Cube
 
 # アプリケーション概要
 
+このオリジナルアプリは
+「患者受入調整をアナログで行う煩わしさ」を解決したい
+「関わる医療従事者」向けに患者受入調整状況を
+即座に共有できるアプリです。
 
 
 # URL
@@ -82,10 +86,16 @@ Support Cube
 
 
 # 機能一覧
-
-
+・
+・
+・
 
 # アプリケーションを作成した背景
+
+私は前職で医療機関に勤務しておりました。患者さんの受診が決定した後のデジタルツールは様々存在します。また医療機関同士での連携アプリも増加しています。
+
+ただし、入院を受け入れるまでの調整の情報共有を、可視化できるデジタルツール(≒機能)が存在していなかったため、今回このアプリを作成しました。
+
 
 
 # 実装予定の機能
@@ -96,7 +106,7 @@ Support Cube
 # 開発環境
 
 - フロントエンド
-  - 
+  - HTML CSS
 - バックエンド
   - ruby (v..)
 - その他

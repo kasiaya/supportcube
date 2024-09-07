@@ -1,0 +1,217 @@
+/* 全体 */
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/*********************************/
+/* ここで左右を2分割 */
+
+/* 左側 */
+.side-menu {
+  width: 200px;
+  background-color: #b8b4b4;
+}
+
+/* 右側 */
+.main {
+  width: calc(100% - 200px);
+  background-color: #ffffff;
+}
+
+/*********************************/
+/* ここから4分割 */
+/******************************************************** 
+  ヘッダー
+********************************************************/
+
+/* 左上 */
+.side-header {
+  height: 100px;
+  background-color: #332c2c;
+  display: flex;
+  align-items: center;
+}
+
+.side-bar {
+  height: calc(100vh - 100px);
+}
+
+/* 右上 */
+.main-header {
+  height: 100px;
+  background-color: #595959;
+  border-bottom: 1px solid #595959;
+  display: flex;
+  padding: 0 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-content {
+  height: calc(100vh - 100px);
+  display: flex;              /* フレックスコンテナとして設定 */
+  flex-direction: column;     /* 子要素を縦に並べる */
+}
+
+/*********************************/
+
+/* 左側の文字を入れる作業 */
+
+.side-box {
+  height: 30px;
+  width: 260px;
+  margin: 0 20px;       /* 上下0px 左右20pxの余白 */
+  align-items: center;  /* 縦方向の中央揃え */
+  display: flex;
+  font-weight: bold;    /* 太文字 */
+  display: flex;           /* Flexboxを使用 */
+  align-items: center;     /* 縦方向の中央揃え */
+  justify-content: center; /* 横方向の中央揃え */
+}
+
+.app-name {
+  color: #ffffff;
+  justify-content: center; /* 横方向の中央揃え */
+  align-items: center;     /* 縦方向の中央揃え */
+  font-size: 17px;         /* フォントサイズを指定 */
+}
+
+/*********************************/
+
+/* 右側上部の文字を入れる作業 */
+
+a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.current-group {
+  color: #eeeeee;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.member {
+  font-size: 15px;
+  color: #eeeeee;
+  display: flex;
+}
+
+.logout-btn {
+  font-size: 12px;
+  border: 1px solid #eeeeee;
+  padding: 10px 15px;
+}
+
+/* ここまでヘッダー */
+/*********************************/
+/* ここからサイドバー */
+
+
+.menu-box {
+  display: flex;           /* Flexboxを使用 */
+  flex-direction: column;  /* 縦方向に並べる */
+  align-items: center;     /* 中央揃え（横方向） */
+  margin: 50px 0;          /* 上下にマージンを追加 */
+  height: 100%;            /* 高さを100%に設定（親要素の高さに依存） */
+}
+
+.category-name {
+  margin: 10px 0;          /* 上下にマージンを追加 */
+  text-align: center;      /* テキストを中央揃え */
+  font-size: 16px;         /* フォントサイズを指定 */
+}
+
+/*********************************/
+/* 右下メインコンテンツの中身ベース */
+
+.before-judge,
+.after-judge {
+    flex: 1;                   /* 各セクションが親コンテナの高さを半分ずつ */
+    overflow: auto;            /* 内容が溢れた場合にスクロール */
+    padding: 10px;
+}
+
+/* 見出しと段落のスタイル */
+.before-judge h2,
+.after-judge h2 {
+    margin-left: 20px;        /* 左に余白を追加 */
+    margin-top: 20px;         /* 上に余白を追加 */
+    font-weight: bold;         /* 太字に設定 */
+    font-size: 1.2em;          /* 少し大きな文字サイズに設定 */
+}
+
+/* 横線のスタイル */
+.divider {
+  margin-left: 20px;        /* 左に余白を追加 */
+  margin-right: 20px;       /* 右に余白を追加 */
+  border: none;             /* デフォルトのボーダーを削除 */
+  border-top: 1px solid #e0dddd; /* 上に2pxのソリッドな線を追加 */
+  margin-top: 10px;         /* 上に余白を追加 */
+}
+
+
+.before-judge p,
+.after-judge p {
+    margin-left: 20px;        /* 左に余白を追加 */
+    margin-top: 10px;         /* 上に余白を追加 */
+}
+
+/* 判定前セクションのスタイル */
+
+.before-judge {
+    background-color: #fafbfb; /* 背景色 */
+    border-bottom: 1px solid #dcdcdc; /* 最後消す。下に境界線を追加 */
+}
+
+/* 判定後セクションのスタイル */
+
+.after-judge {
+    background-color: #fafbfb; /* 背景色 */
+}
+
+/*********************************/
+/* ここから右下メインコンテンツの中身データを出す用*/
+
+.table-container {
+  overflow-y: auto;
+  height: 400px; /* 高さを指定、スクロール可能 */
+  border: 0.5px solid #ddd;
+  padding: 0 30px; /* 左右のパディングを指定 */
+  box-sizing: border-box; /* パディングを含めたサイズ計算 */
+}
+
+table {
+  width: calc(100% - 60px); /* パディングの分を引いた幅 */
+  margin: 0 auto; /* テーブルを中央に配置 */
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 12px; /* 文字サイズを指定 */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  color: whitesmoke;
+  background-color: #858a8b; /* ヘッダーの背景色 */
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f7f8dd; /* マウスオーバー時の背景色 */
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #e0f7fa; /* ヘッダーの背景色 */
+  z-index: 1; /* ヘッダーが他のコンテンツの上に表示されるようにします */
+}
+
+/* ここまで右下メインコンテンツの中身データを出す用*/
+/*********************************/
