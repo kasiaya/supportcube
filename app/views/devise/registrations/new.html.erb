@@ -2,19 +2,49 @@
   <div class='account-page__inner clearfix'>
     <div class='account-page__inner--left account-page__header'>
       <h2>Create Account</h2>
-      <h5>新規アカウントの作成</h5>
+      <h5>職員情報の登録</h5>
     </div>
     <div class='account-page__inner--right user-form'>
       <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), local: true do |f|%>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :name%>
+            <%= f.label :department, '職員ID'%>
+            <i>(数字8文字)</i>
           </div>
           <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
+            <%= f.text_field :employee_id, autofocus: true%>
           </div>
         </div>
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :department, '部署' %>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :department%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :staff_name, '職員名' %>
+            <i>(フルネーム)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :staff_name%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :staff_name_kana , '職員名カナ' %>
+            <i>(半角カタカナ)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :staff_name_kana %>
+          </div>
+        </div>
+        
         <div class='field'>
           <div class='field-label'>
             <%= f.label :email%>
