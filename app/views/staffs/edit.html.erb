@@ -7,15 +7,25 @@
       <%= link_to "チャットページに戻る", :back, class: 'btn'%>
     </div>
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: current_user, local: true do |f|%>
+      <%= form_with model: current_staff, local: true do |f|%>
         <div class='field'>
           <div class='field-label'>
-            <%= f.label :name%>
+            <%= f.label :staff_name, '職員名'%>
           </div>
           <div class='field-input'>
-            <%= f.text_field :name, autofocus: true%>
+            <%= f.text_field :staff_name, autofocus: true%>
           </div>
         </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :staff_name_kana, '職員名カナ'%>
+          </div>
+          <div class='field-input'>
+            <%= f.text_field :staff_name_kana, autofocus: true%>
+          </div>
+        </div>
+        
         <div class='field'>
           <div class='field-label'>
             <%= f.label :email%>
