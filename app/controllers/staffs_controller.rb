@@ -3,7 +3,7 @@ class StaffsController < ApplicationController
   end
 
   def update
-    if current_staff.update(user_params)
+    if current_staff.update(staff_params)
       redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
@@ -12,7 +12,7 @@ class StaffsController < ApplicationController
 
   private
 
-  def user_params
+  def staff_params
     params.require(:staff).permit(:staff_name, :staff_name_kana, :email)
   end
 

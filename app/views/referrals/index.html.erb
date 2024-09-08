@@ -24,8 +24,10 @@
     <div class="main">
       <div class="main-header">
         <div class="header-leftbox">
-          <h2 class="current-group">職員ID : 00007777</h2>
-          <ul class="member"> 担当者 : 鈴木</ul>
+          <h2 class="current-group">職員ID : &nbsp;00007777</h2>
+          <ul class="member"> 担当者 : &nbsp; 
+          <%= link_to current_staff.staff_name, edit_staff_path(current_staff) %>
+          </ul>
         </div>
         <a href="" class="logout-btn">ログアウト</a>
       </div>
