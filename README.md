@@ -4,10 +4,11 @@
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| employeeID         | string | null: false, unique: true  |
+| employee_id        | string | null: false, unique: true  |
 | department         | string | null: false |
 | staff_name         | string | null: false |
 | staff_name_kana    | string | null: false |
+| email              | string | null: false |
 | encrypted_password | string | null: false |
 
 
