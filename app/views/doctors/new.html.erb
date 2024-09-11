@@ -2,6 +2,16 @@
   <h1>担当医マスター登録</h1>
   <%=form_with model: @doctor, local: true do |f|%>
 
+      <% if @doctor.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+          <ul>
+            <% @doctor.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
     <div class='doctor-form__field'>
       <div class='doctor-form__field--left'>
