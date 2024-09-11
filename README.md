@@ -15,7 +15,6 @@
 ### Association
 
 - has_many :referrals
-- has_many :actions
 
 
 ## referrals テーブル
@@ -23,40 +22,53 @@
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
 | patient_name       | string     | null: false |
-| birth_date         | date       | null: false |
+| age                | date       | null: false |
 | gender_id          | integer    | null: false |
 | history_id         | integer    | null: false |
 | purpose_id         | integer    | null: false |
 | adl_id             | integer    | null: false |
 | insurance_id       | integer    | null: false |
-| timing             | integer    | null: false |
-| key_person         | integer    | null: false |
-| destination_id     | integer    |             |
-| status_id          | string     | null: false |
-| user               | references | null: false, foreign_key: true |
-| action             | references | null: false, foreign_key: true |
+| destination_id     | integer    | null: false |
+| requested_date     | integer    |             |
+| admission_date     | integer    |             |
+| status_id          | integer    | null: false |
+| admission_id       | integer    | null: false |
+| staff              | references | null: false, foreign_key: true |
+| partner            | references | null: false, foreign_key: true |
+| doctor             | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- has_one : action
+- belongs_to :staff
+- belongs_to :partner
+- belongs_to :doctor
 
 
-## actions テーブル
+##  partners テーブル
 
-| Column             | Type       | Options     |
-| ------------------ | ---------- | ----------- |
-| decision_id        | integer    | null: false |
-| comment            | text       |             |
-| admission_date     | date       | null: false |
-| dr_id              | integer    | null: false |
-| referral               | references | null: false, foreign_key: true |
-| user               | references | null: false, foreign_key: true |
+| Column                   | Type       | Options     |
+| ------------------------ | ---------- | ----------- |
+| institution_name         | string     | null: false |
+| institution_category_id  | integer    | null: false |
+
 
 ### Association
 
-- belongs_to :user
-- belongs_to :referral
+- has_many :referrals
+
+
+##  doctors テーブル
+
+| Column                   | Type       | Options     |
+| ------------------------ | ---------- | ----------- |
+| doctor_name              | string     | null: false |
+| specialty_id             | integer    | null: false |
+
+
+### Association
+
+- has_many :referrals
+
 
 
 
@@ -68,8 +80,8 @@ Support Cube
 
 このオリジナルアプリは
 「患者受入調整をアナログで行う煩わしさ」を解決したい
-「関わる医療従事者」向けに患者受入調整状況を
-即座に共有できるアプリです。
+患者受入れ調整に関わる医療従事者」向けに
+患者受入調整状況を一元管理できるアプリです。
 
 
 # URL
@@ -78,8 +90,8 @@ Support Cube
 
 # テスト用アカウント
 
-- ID：00001111
-- パスワード：test1test1
+- メールアドレス：test@sample
+- パスワード：111111
 
 # 利用方法
 
@@ -93,9 +105,10 @@ Support Cube
 
 # アプリケーションを作成した背景
 
-私は前職で医療機関に勤務しておりました。患者さんの受診が決定した後のデジタルツールは様々存在します。また医療機関同士での連携アプリも増加しています。
+私は前職で医療機関に勤務しておりました。
+患者さんの受診が決定した後のデジタルツールは様々存在し、医療機関同士での連携アプリも増加しています。
 
-ただし、入院を受け入れるまでの調整の情報共有を、可視化できるデジタルツール(≒機能)が存在していなかったため、今回このアプリを作成しました。
+ただし、患者さんを受け入れるまでの各種調整の情報を共有し可視化できるデジタルツール(≒機能)が存在していなかったため、今回このアプリを作成しました。
 
 
 

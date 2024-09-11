@@ -79,12 +79,20 @@
 
 /*********************************/
 
-/* 右側上部の文字を入れる作業 */
+/* Aタグ設定 */
 
 a {
   text-decoration: none;
   color: #eeeeee;
 }
+
+.side-bar-link {
+  color: black; /* 別の色に設定 */
+}
+
+/*********************************/
+
+/* 右側上部の文字を入れる作業 */
 
 .current-group {
   color: #eeeeee;
