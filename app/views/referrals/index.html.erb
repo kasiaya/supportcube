@@ -29,7 +29,7 @@
           <%= link_to current_staff.staff_name, edit_staff_path(current_staff) %>
           </ul>
         </div>
-        <a href="" class="logout-btn">ログアウト</a>
+        <%= link_to "ログアウト", destroy_staff_session_path, data: { turbo_method: :delete }, class: 'logout-btn'%>
       </div>
 
       <div class="main-content">
