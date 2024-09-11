@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root to: "referrals#index"
   resources :staffs, only: [:edit, :update]
   resources :partners, only: [:new, :create]
+  resources :doctors, only: [:new, :create]
 end
