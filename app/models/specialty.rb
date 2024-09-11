@@ -7,4 +7,7 @@ class Specialty < ActiveHash::Base
     { id: 5, name: '整形外科' },
   ]
   
+  include ActiveHash::Associations
+  has_many :doctors
+  
   end
