@@ -1,0 +1,30 @@
+<div class='partner-form'>
+  <h1>紹介元マスター登録</h1>
+  <%=form_with model: @partner, local: true do |f|%>
+    <div class='partner-form__field'>
+      <div class='partner-form__field--left'>
+        <%= f.label :institution_name, :医療機関名, class: 'partner-form__label'%>
+      </div>
+      <div class='partner-form__field--right'>
+        <%= f.text_field :institution_name, class: 'partner-form__input', placeholder: '医療機関名を入力してください'%>
+      </div>
+    </div>
+    <div class='partner-form__field'>
+    </div>
+    <div class='partner-form__field'>
+      <div class='partner-form__field--left'>
+        <%= f.label :institution_category_id, :医療機関分類, class: 'partner-form__label'%>
+      </div>
+      <div class='partner-form__field--right'>
+        <%= f.collection_select(:institution_category_id, InstitutionCategory.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+      </div>
+    </div>
+  
+    <div class='partner-form__field'>
+      <div class='partner-form__field--left'></div>
+      <div class='partner-form__field--right'>
+        <%= f.submit "登録", class: 'partner-form__action-btn'%>
+      </div>
+    </div>
+  <% end %>
+</div>

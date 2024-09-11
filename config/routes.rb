@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "referrals#index"
   resources :staffs, only: [:edit, :update]
+  resources :partners, only: [:new, :create]
 end
