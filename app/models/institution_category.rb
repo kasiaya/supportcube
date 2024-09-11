@@ -4,4 +4,8 @@ class InstitutionCategory < ActiveHash::Base
     { id: 2, name: '病院' },
     { id: 3, name: '診療所' },
   ]
+
+  include ActiveHash::Associations
+  has_many :partners
+  
   end
