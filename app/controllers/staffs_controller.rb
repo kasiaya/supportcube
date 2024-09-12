@@ -1,4 +1,5 @@
 class StaffsController < ApplicationController
+  before_action :set_staff, only: [:edit, :update]
   def edit
   end
 
@@ -11,6 +12,10 @@ class StaffsController < ApplicationController
   end
 
   private
+
+  def set_staff
+    @staff = current_staff
+  end
 
   def staff_params
     params.require(:staff).permit(:staff_name, :staff_name_kana, :email)
