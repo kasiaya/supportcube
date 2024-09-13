@@ -12,9 +12,9 @@
           <div class="menu-box">
             <p class="category-name">案件登録</p>
             <p class="category-name">マイページ</p>
-            <p class="category-name">会議用</p>
             <a href="/partners/new" class="category-name side-bar-link">紹介元登録</a>
-            <p class="category-name">医師登録</p>
+            <a href="/doctors/new" class="category-name side-bar-link">担当医登録</a>
+            <p class="category-name">カレンダー</p>
           </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
           <%= link_to current_staff.staff_name, edit_staff_path(current_staff) %>
           </ul>
         </div>
-        <a href="" class="logout-btn">ログアウト</a>
+        <%= link_to "ログアウト", destroy_staff_session_path, data: { turbo_method: :delete }, class: 'logout-btn'%>
       </div>
 
       <div class="main-content">
