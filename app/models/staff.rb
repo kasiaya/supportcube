@@ -3,6 +3,7 @@ class Staff < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_many :referrals
 
   validates :employee_id, presence: true, uniqueness: true, format: { with: /\A\d{8}\z/, message: "must be exactly 8 digits" }
   validates :department, presence: true
