@@ -10,4 +10,11 @@ class Referral < ApplicationRecord
   enum :status,        { hearing: 0, pending: 1, waiting: 2, canceled: 3 }
   enum :determination, { preparing: 0, requested: 1, declined: 2, adjusting: 3, adjusted: 4, accepted: 5 }
 
+  validates :patient_name,  presence: true
+  validates :age,           presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 130 }
+  validates :gender,        presence: true
+  validates :history,       presence: true
+  validates :purpose,       presence: true
+  validates :insurance,     presence: true
+
 end
