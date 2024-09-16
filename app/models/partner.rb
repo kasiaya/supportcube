@@ -1,6 +1,7 @@
 class Partner < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :institution_category
+  has_many :referrals
 
   #医療機関名を空で保存できないようにする
   validates :institution_name, presence: true

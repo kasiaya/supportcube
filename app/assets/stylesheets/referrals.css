@@ -146,25 +146,15 @@
   margin-top: 15px;
 }
 
-.box_check {
-  text-align: center;
-  margin: 1em auto;
-}
-.box_check label {
-  display: inline-block;
-}
-.box_check label span {
-  margin-left: .3em;
-}
-
 .btn {
   text-align: center;
+  margin-top: 20px; /* 上に余白を追加。必要に応じて値を調整 */
 }
 .btn input {
   display: inline-block;
-  background: #eee;
+  background: #0b0b0be8;
   padding: .5em 4em;
-  color: #000;
+  color: white;
   text-decoration: none;
   cursor: pointer;
   border: none;

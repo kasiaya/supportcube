@@ -6,158 +6,137 @@
     <div class="referral-form__field">
         <table class="formTable">
           <tr>
-            <th>調整状況</th>
-            <td><select name="調整状況"class="custom-select">>
-                <option value="">選択してください</option>
-                <option value="聴取中">聴取中</option>
-                <option value="判定待ち">判定待ち</option>
-                <option value="回答待ち">回答待ち</option>
-                <option value="キャンセル">キャンセル</option>
-              </select></td>
-          </tr>
-
-          <tr>
-            <th>紹介元医療機関</th>
+            <th> <%= f.label :status, '調整状況' %></th>
             <td>
-              <select name="紹介元医療機関" class="custom-select">
-                <option value="">選択してください</option>
-                <option value="病院A">病院A</option>
-                <option value="病院B">病院B</option>
-                <option value="病院C">病院C</option>
-                <option value="クリニックD">クリニックD</option>
-                <option value="クリニックE">クリニックE</option>
-              </select>
+              <%= f.select :status, [
+                ['聴取中', :hearing],
+                ['判定待ち', :pending],
+                ['返答待ち', :waiting],
+                ['キャンセル', :canceled]
+              ], {}, class: 'custom-select' %>          
             </td>
           </tr>
 
           <tr>
-            <th>患者名</th>
-            <td><input size="20" type="text" name="お名前" placeholder="患者名を入力" /></td>
-          </tr>
-
-          <tr>
-            <th>年齢</th>
-            <td><input size="10" type="text" name="年齢"  placeholder="半角数字"/></td>
-          </tr>
-
-          <tr>
-            <th>性別</th>
+            <th><%= f.label :partner_id, '紹介元医療機関' %></th>
             <td>
-              <input type="radio" id="male" name="gender" value="男性" />
-              <label for="male">男性</label>
-              <br />
-              <input type="radio" id="female" name="gender" value="女性" />
-              <label for="female">女性</label>
-            </td>
-          </tr>
-
-          <tr>
-            <th>入院歴</th>
-            <td>
-              <input type="radio" id="history_yes" name="hospital_history" value="あり" />
-              <label for="history_yes">あり</label>
-              <br />
-              <input type="radio" id="history_no" name="hospital_history" value="なし" />
-              <label for="history_no">なし</label>
-            </td>
-          </tr>
-
-          <tr>
-            <th>入院目的</th>
-            <td><select name="入院目的"class="custom-select">
-                <option value="">選択してください</option>
-                <option value="リハビリ">リハビリ</option>
-                <option value="レスパイト">レスパイト</option>
-                <option value="レスパイト">その他</option>
-              </select></td>
-          </tr>
- 
-          <tr>
-            <th>ADL</th>
-            <td><input size="30" type="text" name="adl" placeholder="例) 全介助, 要介助, 見守り, 自立"/></td>
-          </tr>
-
-          <tr>
-            <th>介護認定</th>
-            <td>
-              <input type="radio" id="no_care" name="care_level" value="介護保険なし" />
-              <label for="no_care">介護保険なし</label>
-              <br />
-              <input type="radio" id="support_level_1" name="care_level" value="要支援1" />
-              <label for="support_level_1">要支援1</label>
-              <br />
-              <input type="radio" id="support_level_2" name="care_level" value="要支援2" />
-              <label for="support_level_2">要支援2</label>
-              <br />
-              <input type="radio" id="care_level_1" name="care_level" value="要介護1" />
-              <label for="care_level_1">要介護1</label>
-              <br />
-              <input type="radio" id="care_level_2" name="care_level" value="要介護2" />
-              <label for="care_level_2">要介護2</label>
-              <br />
-              <input type="radio" id="care_level_3" name="care_level" value="要介護3" />
-              <label for="care_level_3">要介護3</label>
-              <br />
-              <input type="radio" id="care_level_4" name="care_level" value="要介護4" />
-              <label for="care_level_4">要介護4</label>
-              <br />
-              <input type="radio" id="care_level_5" name="care_level" value="要介護5" />
-              <label for="care_level_5">要介護5</label>
+              <%= f.collection_select(:partner_id, Partner.all, :id, :institution_name, { include_blank: '選択してください' }, { class: 'custom-select' }) %>
             </td>
           </tr>
           
           <tr>
-            <th>転帰予定先</th>
-            <td><input size="30" type="text" name="destination"  placeholder="例) 自宅, 施設, 未定"/></td>
+            <th><%= f.label :patient_name, '患者名' %></th>
+            <td><%= f.text_field :patient_name, size: 20, placeholder: '患者名を入力' %></td>
           </tr>
 
           <tr>
-            <th>入院希望日</th>
-            <td><input type="date" name="hospitalization_date" /></td>
+            <th><%= f.label :age, '年齢' %></th>
+            <td><%= f.number_field :age, size: 10, placeholder: '半角数字' %></td>
           </tr>
 
           <tr>
-            <th>受入予定日</th>
-            <td><input type="date" name="hospitalization_date" /></td>
-          </tr>
-
-          <tr>
-            <th>メモ</th>
-            <td><input size="70" type="text" name="memo" /></td>
-          </tr>
-
-          <tr>
-            <th>判定結果</th>
-            <td><select name="判定結果"class="custom-select">>
-                <option value="">選択してください</option>
-                <option value="お断り">お断り</option>
-                <option value="日時未定">ベッド調整待ち</option>
-                <option value="日時決定">日時決定</option>
-                <option value="日時決定">受入済</option>
-              </select></td>
-          </tr>
-
-          <tr>
-            <th>担当医</th>
+            <th><%= f.label :gender, '性別' %></th>
             <td>
-              <select name="担当医" class="custom-select">
-                <option value="">選択してください</option>
-                <option value="医師A">医師A</option>
-                <option value="医師B">医師B</option>
-                <option value="医師C">医師C</option>
-              </select>
+              <%= f.radio_button :gender, :male %>
+              <%= f.label :gender_male, '男性' %>
+              <%= f.radio_button :gender, :female %>
+              <%= f.label :gender_female, '女性' %>
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :history, '入院歴' %></th>
+            <td>
+              <%= f.radio_button :history, :returning %>
+              <%= f.label :history_returning, 'リピーター' %>
+              <%= f.radio_button :history, :new_entry %>
+              <%= f.label :history_new_entry, '新患' %>
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :purpose, '入院目的' %></th>
+            <td>
+              <%= f.radio_button :purpose, :rehabilitation %>
+              <%= f.label :purpose_rehabilitation, 'リハビリ' %>
+              <%= f.radio_button :purpose, :respite %>
+              <%= f.label :purpose_respite, 'レスパイト' %>
+              <%= f.radio_button :purpose, :waiting %>
+              <%= f.label :purpose_other, 'その他' %>
+            </td>
+          </tr>
+ 
+          <tr>
+            <th><%= f.label :adl, 'ADL' %></th>
+            <td><%= f.text_field :memo, size: 30, placeholder: '例) 全介助, 要介助, 室内自立' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :insurance, '介護認定' %></th>
+            <td>
+              <%= f.radio_button :insurance, :no_insurance %>
+              <%= f.label :insurance_no_insurance, '介護認定なし' %>
+              <%= f.radio_button :insurance, :supportone %>
+              <%= f.label :insurance_supportone, '要支援１' %>
+              <%= f.radio_button :insurance, :supporttwo %>
+              <%= f.label :insurance_supporttwo, '要支援２' %>
+              <%= f.radio_button :insurance, :careone %>
+              <%= f.label :insurance_careone, '要介護１' %>
+              <%= f.radio_button :insurance, :caretwo %>
+              <%= f.label :insurance_caretwo, '要介護２' %>
+              <%= f.radio_button :insurance, :carethree %>
+              <%= f.label :insurance_carethree, '要介護３' %>
+              <%= f.radio_button :insurance, :carefour %>
+              <%= f.label :insurance_carefour, '要介護４' %>
+              <%= f.radio_button :insurance, :carefive %>
+              <%= f.label :insurance_carefive, '要介護５' %>
+          <tr>
+
+          <tr>
+            <th><%= f.label :prognosis, '転帰予定先' %></th>
+            <td><%= f.text_field :prognosis, size: 30, placeholder: '例) 自宅, 施設, 未定' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :requested_date, '入院希望日' %></th>
+            <td><%= f.date_field :requested_date %></td></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :admission_date, '受入予定日' %></th>
+            <td><%= f.date_field :admission_date %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :memo, '追記事項' %></th>
+            <td><%= f.text_field :memo, size: 70, placeholder: '追記事項があれば入力' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :determination, '判定結果' %></th>
+            <td>
+              <%= f.select :determination, [
+                ['判定前', :preparing],
+                ['判定希望', :requested],
+                ['お断り', :declined],
+                ['日程調整中', :adjusting],
+                ['調整完了', :adjusted],
+                ['受入済', :accepted]
+              ], {}, class: 'custom-select' %>   
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :doctor_id, '担当医' %></th>
+            <td>
+              <%= f.collection_select(:doctor_id, Doctor.all, :id, :doctor_name, { include_blank: '選択してください' }, { class: 'custom-select' }) %>
             </td>
           </tr>
 
        </table>
 
-        <div class="box_check">
-            <label>
-                <input type="checkbox" name="acceptance-714" value="1" aria-invalid="false" class="agree"><span class="check">必要項目を登録した</span>
-            </label>
-        </div>
         <p class="btn">
-            <span><input type="submit" class="submit-button" value=" 登録 " /></span>
+            <%= f.submit "登録", class: 'submit-button'%>
         </p>
 
         <div class="con_pri">
@@ -170,7 +149,6 @@
                 </div>
             </div>
         </div>
-
 
       </form>
   </div>
