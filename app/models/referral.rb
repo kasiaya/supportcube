@@ -16,5 +16,9 @@ class Referral < ApplicationRecord
   validates :history,       presence: true
   validates :purpose,       presence: true
   validates :insurance,     presence: true
-
+  validates :status,        presence: true
+  validates :determination, presence: true
+  validates :staff,         presence: true
+  validates :doctor,        presence: true
+  validates :partner,       presence: true
 end
