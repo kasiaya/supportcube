@@ -1,0 +1,169 @@
+.referral-form {
+  width: 980px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.referral-form__field {
+  max-width: 900px;
+  margin: 0  auto;
+}
+
+.referral-form__field form {
+  width: 100%;
+}
+.referral-form__field form table {
+  width: 100%;
+}
+.referral-form__field form table tr {
+  position: relative;
+}
+.referral-form__field form table tr:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: dotted #cdcdcd 1px;
+}
+.referral-form__field form table tr th {
+  width: 30%;
+  font-weight: normal;
+  padding: 1em .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.referral-form__field form table tr th span {
+  background: #cd6f55;
+  padding: 0 .3em;
+  color: #fff;
+  margin-left: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.referral-form__field form table tr td {
+  padding: 1em .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.boreferral-form__fieldx_con form table tr .box_br {
+  display: block;
+}
+.referral-form__field form table tr select {
+  border: 1px solid #97ae88;
+}
+.referral-form__field form table tr label input {
+  cursor: pointer;
+  display: none;
+  vertical-align: middle;
+}
+.referral-form__field form table tr .radio02-input + label {
+  padding-left: 23px;
+  margin-right: 20px;
+  position: relative;
+}
+.referral-form__field form table tr .radio02-input + label:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.referral-form__field form table tr .radio02-input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  background: #97ae88;
+  border-radius: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.referral-form__field form table tr select, .referral-form__field form table tr input, .referral-form__field form table tr textarea {
+  width: 100%;
+  height: 3em;
+  padding: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.referral-form__field form table tr textarea {
+  height: 10em;
+}
+
+
+.custom-select {
+  height: 25px; /* 高さを設定 */
+  line-height: 25px; /* テキストの行の高さを設定（整列をよくするため） */
+  font-size: 12px; /* フォントサイズを設定 */
+  padding: 0 5px; /* 内側のパディングを設定（左右に5px） */
+  box-sizing: border-box; /* パディングとボーダーを含めて高さを計算 */
+  width: 200px; /* 幅を150pxに設定 */
+}
+
+/*下のグレーのボックス*/
+.con_pri {
+  max-width: 700px;
+  margin: 0  auto;
+}
+
+
+.con_pri .box_pri {
+  height: 100px;
+  overflow-y: scroll;
+  border: 1px solid #cdcdcd;
+  background: #f7f7f7;
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding: 5px 40px;
+}
+
+.con_pri .box_pri .box_tori {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.btn {
+  text-align: center;
+  margin-top: 20px; /* 上に余白を追加。必要に応じて値を調整 */
+}
+.btn input {
+  display: inline-block;
+  background: #0b0b0be8;
+  padding: .5em 4em;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  -moz-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.btn input:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+}

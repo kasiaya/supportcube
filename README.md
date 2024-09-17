@@ -22,17 +22,18 @@
 | Column             | Type       | Options     |
 | ------------------ | ---------- | ----------- |
 | patient_name       | string     | null: false |
-| age                | date       | null: false |
-| gender_id          | integer    | null: false |
-| history_id         | integer    | null: false |
-| purpose_id         | integer    | null: false |
-| adl_id             | integer    | null: false |
-| insurance_id       | integer    | null: false |
-| destination_id     | integer    | null: false |
-| requested_date     | integer    |             |
-| admission_date     | integer    |             |
-| status_id          | integer    | null: false |
-| admission_id       | integer    | null: false |
+| age                | integer    | null: false |
+| gender             | integer    | null: false |
+| history            | integer    | null: false |
+| purpose            | integer    | null: false |
+| adl                | string     |             |
+| insurance          | integer    | null: false |
+| prognosis          | string     |             |
+| requested_date     | date       |             |
+| admission_date     | date       |             |
+| status             | integer    | null: false |
+| determination      | integer    | null: false |
+| memo               | text       |             |
 | staff              | references | null: false, foreign_key: true |
 | partner            | references | null: false, foreign_key: true |
 | doctor             | references | null: false, foreign_key: true |
