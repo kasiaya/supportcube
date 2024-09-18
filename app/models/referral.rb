@@ -21,4 +21,8 @@ class Referral < ApplicationRecord
   validates :staff,         presence: true
   validates :doctor,        presence: true
   validates :partner,       presence: true
+
+  scope :active_statuses, -> { where.not(status: 'canceled') }
+  scope :active_determination, -> { where.not(determination: 'accepted') }
+  scope :active, -> { active_statuses.active_determination }
 end
