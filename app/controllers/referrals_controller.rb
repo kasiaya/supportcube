@@ -19,6 +19,9 @@ class ReferralsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def set_staff

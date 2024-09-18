@@ -105,7 +105,7 @@
                   <%# 担当者 %>
                     <td><%= referral.staff.staff_name %></td>
 
-                    <td><span class='btn'>詳細</span></td>
+                    <td><%= link_to '詳細', referral_path(referral.id), class: 'btn-detail' %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -181,7 +181,7 @@
               <%# 担当者 %>
                 <td><%= referral.staff.staff_name %></td>
 
-                <td><span class='btn'>詳細</span></td>
+                <td><%= link_to '詳細', referral_path(referral.id), class: 'btn-detail' %></td>
             </tr>
         </tbody>
         <% end %>
