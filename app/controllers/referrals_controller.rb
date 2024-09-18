@@ -1,6 +1,8 @@
 class ReferralsController < ApplicationController
   before_action :set_staff, only: [:new, :create]
+
   def index
+    @referrals = Referral.includes(:staff, :partner).all.active
   end
 
   def new

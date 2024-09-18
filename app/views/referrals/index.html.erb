@@ -54,57 +54,63 @@
                 </tr>
             </thead>
             <tbody>
+            <% @referrals.each do |referral| %>
                 <tr>
-                    <td>判定待ち</td>
-                    <td>田中太郎</td>
-                    <td>75</td>
-                    <td>男性</td>
-                    <td>あり</td>
-                    <td>クリニックA</td>
-                    <td>即時</td>
-                    <td>検査</td>
-                    <td>佐藤</td>
-                    <td>ボタン</td>
+                  <%# 調整状況 %>
+                    <td> 
+                        <% if referral.status == 'hearing' %>
+                          聴取中
+                        <% elsif referral.status == 'pending' %>
+                          判定待ち
+                        <% elsif referral.status == 'waiting' %>
+                          返答待ち
+                        <% elsif referral.status == 'canceled' %>
+                          キャンセル
+                        <% end %>
+                    </td>
+                  <%# 患者名 %>
+                    <td><%= referral.patient_name %></td>
+                  <%# 年齢 %>
+                    <td><%= referral.age %></td>
+                  <%# 性別 %>
+                    <td>
+                        <% if referral.gender == 'male' %>
+                          男性
+                        <% elsif referral.gender == 'female' %>
+                          女性
+                        <% end %>
+                    </td>
+                  <%# 入院歴 %>
+                    <td>
+                        <% if referral.history == 'returning' %>
+                          リピーター
+                        <% elsif referral.history == 'new_entry' %>
+                          新患
+                        <% end %>
+                    </td>
+                  <%# 医療期間名 %>
+                    <td><%= referral.partner.institution_name %></td>
+                  <%# 入院希望日 %>
+                    <td><%= referral.requested_date %></td>
+                  <%# 入院目的 %>
+                    <td>
+                        <% if referral.purpose == 'rehabilitation' %>
+                          リハビリ
+                        <% elsif referral.purpose == 'respite' %>
+                          レスパイト
+                        <% elsif referral.purpose == 'waiting' %>
+                          その他
+                        <% end %>
+                      </td>
+                  <%# 担当者 %>
+                    <td><%= referral.staff.staff_name %></td>
+
+                    <td><span class='btn'>詳細</span></td>
                 </tr>
-                <tr>
-                    <td>聴取中</td>
-                    <td>鈴木花子</td>
-                    <td>64</td>
-                    <td>女性</td>
-                    <td>なし</td>
-                    <td>クリニックB</td>
-                    <td>来月</td>
-                    <td>リハビリ</td>
-                    <td>山田</td>
-                    <td>ボタン</td>
-                </tr>
-                <tr>
-                    <td>判定待ち</td>
-                    <td>佐藤健</td>
-                    <td>95</td>
-                    <td>男性</td>
-                    <td>あり</td>
-                    <td>病院C</td>
-                    <td>今月末</td>
-                    <td>予防接種</td>
-                    <td>伊藤</td>
-                    <td>ボタン</td>
-                </tr>
-                <tr>
-                    <td>回答待ち</td>
-                    <td>佐藤美幸</td>
-                    <td>85</td>
-                    <td>女性</td>
-                    <td>あり</td>
-                    <td>病院C</td>
-                    <td>今月末</td>
-                    <td>レスパイト</td>
-                    <td>伊藤</td>
-                    <td>ボタン</td>
-                </tr>
-                
+              <% end %>
             </tbody>
           </table>
+
           </section>
           <section class="after-judge">
               <h2>判定後</h2>
@@ -126,55 +132,59 @@
             </tr>
         </thead>
         <tbody>
+          <% @referrals.each do |referral| %>
             <tr>
-                <td>完了</td>
-                <td>今月末</td>
-                <td>田中太郎</td>
-                <td>75</td>
-                <td>男性</td>
-                <td>クリニックA</td>
-                <td>即時</td>
-                <td>検査</td>
-                <td>佐藤</td>
-                <td>ボタン</td>
-            </tr>
-            <tr>
-                <td>完了</td>
-                <td>来月</td>
-                <td>元木花子</td>
-                <td>104</td>
-                <td>女性</td>
-                <td>クリニックB</td>
-                <td>来月</td>
-                <td>リハビリ</td>
-                <td>山田</td>
-                <td>ボタン</td>
-            </tr>
-            <tr>
-                <td>未定</td>
-                <td>今月末</td>
-                <td>上村健</td>
-                <td>95</td>
-                <td>男性</td>
-                <td>病院C</td>
-                <td>今月末</td>
-                <td>予防接種</td>
-                <td>伊藤</td>
-                <td>ボタン</td>
-            </tr>
-            <tr>
-                <td>調整中</td>
-                <td>今月末</td>
-                <td>木村美幸</td>
-                <td>86</td>
-                <td>女性</td>
-                <td>病院C</td>
-                <td>今月末</td>
-                <td>レスパイト</td>
-                <td>伊藤</td>
-                <td>ボタン</td>
+              <%# ベッド準備 %>
+                <td>
+                  <% if referral.determination == 'preparing' %>
+                    判定前
+                  <% elsif referral.determination == 'requested' %>
+                    判定希望
+                  <% elsif referral.determination == 'declined' %>
+                    お断り
+                  <% elsif referral.determination == 'adjusting' %>
+                    日程調整中
+                  <% elsif referral.determination == 'adjusted' %>
+                    調整完了
+                  <% elsif referral.determination == 'accepted' %>
+                    受入済
+                  <% end %>
+                </td>
+              <%# 入院受入日 %>
+                <td><%= referral.admission_date %></td>
+              <%# 患者名 %>
+                <td><%= referral.patient_name %></td>
+              <%# 年齢 %>
+                <td><%= referral.age %></td>
+              <%# 性別 %>
+                <td>
+                    <% if referral.gender == 'male' %>
+                      男性
+                    <% elsif referral.gender == 'female' %>
+                      女性
+                    <% end %>
+                </td>
+              <%# 医療期間名 %>
+                <td><%= referral.partner.institution_name %></td>
+              <%# 入院希望日 %>
+                <td><%= referral.requested_date %></td>
+              <%# 入院目的 %>
+                <td>
+                    <% if referral.purpose == 'rehabilitation' %>
+                      リハビリ
+                    <% elsif referral.purpose == 'respite' %>
+                      レスパイト
+                    <% elsif referral.purpose == 'waiting' %>
+                      その他
+                    <% end %>
+                  </td>
+              <%# 担当者 %>
+                <td><%= referral.staff.staff_name %></td>
+
+                <td><span class='btn'>詳細</span></td>
             </tr>
         </tbody>
+        <% end %>
       </table>
       </section>
       </div>
