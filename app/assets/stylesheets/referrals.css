@@ -186,3 +186,7 @@
 .btn-detail:hover {
   opacity: 0.5; /* ホバー時の透明度 */
 }
+
+.custom-header {
+  width: 200px; /* 横幅を指定 */
+}

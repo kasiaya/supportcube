@@ -20,6 +20,7 @@ class ReferralsController < ApplicationController
   end
 
   def show
+    @referral = Referral.includes(:doctor, :partner).find(params[:id])
   end
 
   private

@@ -1,4 +1,153 @@
 <div class='referral-form'>
   <h1>詳細表示</h1>
 
+  <%=form_with model: @referral, local: true do |f|%>
+
+
+    <div class="referral-form__field">
+        <table class="formTable">
+          <tr>
+            <th class="custom-header">調整状況</th>
+            <td>
+              <% status_display = {
+                hearing: '調整中',
+                pending: '判定待ち',
+                waiting: '返答待ち',
+                canceled: 'キャンセル'
+              } %>
+              <%= status_display[@referral.status.to_sym] %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>紹介元医療機関</th>
+            <td><%= @referral.partner.institution_name %></td>
+          </tr>
+          
+          <tr>
+            <th>患者名</th>
+            <td><%= @referral.patient_name %></td>
+          </tr>
+
+          <tr>
+            <th>年齢</th>
+            <td><%= @referral.age %></td>
+          </tr>
+
+          <tr>
+            <th>性別</th>
+            <td>
+              <% gender_display = {
+                male: '男性',
+                female: '女性'
+              } %>
+              <%= gender_display[@referral.gender.to_sym]%>
+            </td>
+          </tr>
+
+          <tr>
+            <th>入院歴</th>
+            <td>
+              <% history_display = {
+                returning: 'リピーター',
+                new_entry: '新患'
+              } %>
+              <%= history_display[@referral.history.to_sym] %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>入院目的</th>
+            <td>
+              <% purpose_display = {
+                rehabilitation: 'リハビリ',
+                respite: 'レスパイト',
+                waiting: 'その他'
+              } %>
+              <%= purpose_display[@referral.purpose.to_sym] %>
+            </td>
+          </tr>
+ 
+          <tr>
+            <th><%= f.label :adl, 'ADL' %></th>
+            <td><%= @referral.adl %></td>
+          </tr>
+
+          <tr>
+            <th>介護認定</th>
+            <td>
+              <% insurance_display = {
+                no_insurance: '介護認定なし',
+                supportone: '要支援１',
+                supporttwo: '要支援２',
+                careone: '要介護１',
+                caretwo: '要介護２',
+                carethree: '要介護３',
+                carefour: '要介護４',
+                carefive: '要介護５'
+              } %>
+              <%= insurance_display[@referral.insurance.to_sym] %>
+            </td>
+          <tr>
+
+          <tr>
+            <th><%= f.label :prognosis, '転帰予定先' %></th>
+            <td><%= @referral.prognosis %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :requested_date, '入院希望日' %></th>
+            <td><%= @referral.requested_date %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :admission_date, '受入予定日' %></th>
+            <td><%= @referral.admission_date %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :memo, '追記事項' %></th>
+            <td><%= @referral.memo %></td>
+          </tr>
+
+          <tr>
+            <th>判定結果</th>
+            <td>
+              <% determination_display = {
+                preparing: '判定前',
+                requested: '判定希望',
+                declined: 'お断り',
+                adjusting: '日程調整中',
+                adjusted: '調整完了',
+                accepted: '受入済'
+              } %>
+              <%= determination_display[@referral.determination.to_sym] %>
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :doctor_id, '担当医' %></th>
+            <td><%= @referral.doctor.doctor_name %></td>
+          </tr>
+
+       </table>
+
+        <p class="btn">
+            <%= f.submit "編集", class: 'edit-button'%>
+        </p>
+
+        <div class="con_pri">
+            <div class="box_pri">
+                <div class="box_tori">
+                    <h4>【内線番号】</h4>
+                    <p class="txt">・ベットコントロール担当:1234 </p>
+                    <p class="txt">・医療相談室:1111 </p>
+                    <p class="txt">・A科長:2222 </p>
+                </div>
+            </div>
+        </div>
+      </div>
+
+  <% end %>
+  
 </div>
