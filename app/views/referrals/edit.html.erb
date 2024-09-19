@@ -3,6 +3,17 @@
 
   <%=form_with model: @referral, local: true do |f|%>
 
+    <% if @referral.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@referral.errors.count, "error") %> prohibited this referral from being saved:</h2>
+        <ul>
+          <% @referral.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="referral-form__field">
         <table class="formTable">
           <tr>
