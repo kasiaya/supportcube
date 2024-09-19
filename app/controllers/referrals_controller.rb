@@ -19,6 +19,10 @@ class ReferralsController < ApplicationController
     end
   end
 
+  def show
+    @referral = Referral.includes(:doctor, :partner).find(params[:id])
+  end
+
   private
 
   def set_staff
