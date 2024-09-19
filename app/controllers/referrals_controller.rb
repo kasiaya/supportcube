@@ -24,9 +24,16 @@ class ReferralsController < ApplicationController
   end
 
   def edit
+    @referral = Referral.includes(:doctor, :partner).find(params[:id])
   end
 
   def update
+    @referral = Referral.find(params[:id])
+    if @referral.update(referral_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

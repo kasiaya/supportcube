@@ -1,2 +1,157 @@
 <div class='referral-form'>
   <h1>案件情報編集</h1>
+
+  <%=form_with model: @referral, local: true do |f|%>
+
+    <div class="referral-form__field">
+        <table class="formTable">
+          <tr>
+            <th> <%= f.label :status, '調整状況' %></th>
+            <td>
+              <%= f.select :status, [
+                ['聴取中', :hearing],
+                ['判定待ち', :pending],
+                ['返答待ち', :waiting],
+                ['キャンセル', :canceled]
+              ], {}, class: 'custom-select' %>          
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :partner_id, '紹介元医療機関' %></th>
+            <td>
+              <%= f.collection_select(:partner_id, Partner.all, :id, :institution_name, { include_blank: '選択してください' }, { class: 'custom-select' }) %>
+            </td>
+          </tr>
+          
+          <tr>
+            <th><%= f.label :patient_name, '患者名' %></th>
+            <td><%= f.text_field :patient_name, size: 20, placeholder: '患者名を入力' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :age, '年齢' %></th>
+            <td><%= f.number_field :age, size: 10, placeholder: '半角数字' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :gender, '性別' %></th>
+            <td>
+              <%= f.radio_button :gender, :male %>
+              <%= f.label :gender_male, '男性' %>
+              <%= f.radio_button :gender, :female %>
+              <%= f.label :gender_female, '女性' %>
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :history, '入院歴' %></th>
+            <td>
+              <%= f.radio_button :history, :returning %>
+              <%= f.label :history_returning, 'リピーター' %>
+              <%= f.radio_button :history, :new_entry %>
+              <%= f.label :history_new_entry, '新患' %>
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :purpose, '入院目的' %></th>
+            <td>
+              <%= f.radio_button :purpose, :rehabilitation %>
+              <%= f.label :purpose_rehabilitation, 'リハビリ' %>
+              <%= f.radio_button :purpose, :respite %>
+              <%= f.label :purpose_respite, 'レスパイト' %>
+              <%= f.radio_button :purpose, :waiting %>
+              <%= f.label :purpose_other, 'その他' %>
+            </td>
+          </tr>
+ 
+          <tr>
+            <th><%= f.label :adl, 'ADL' %></th>
+            <td><%= f.text_field :adl, size: 30, placeholder: '例) 全介助, 要介助, 室内自立' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :insurance, '介護認定' %></th>
+            <td>
+              <%= f.radio_button :insurance, :no_insurance %>
+              <%= f.label :insurance_no_insurance, '介護認定なし' %>
+              <%= f.radio_button :insurance, :supportone %>
+              <%= f.label :insurance_supportone, '要支援１' %>
+              <%= f.radio_button :insurance, :supporttwo %>
+              <%= f.label :insurance_supporttwo, '要支援２' %>
+              <%= f.radio_button :insurance, :careone %>
+              <%= f.label :insurance_careone, '要介護１' %>
+              <%= f.radio_button :insurance, :caretwo %>
+              <%= f.label :insurance_caretwo, '要介護２' %>
+              <%= f.radio_button :insurance, :carethree %>
+              <%= f.label :insurance_carethree, '要介護３' %>
+              <%= f.radio_button :insurance, :carefour %>
+              <%= f.label :insurance_carefour, '要介護４' %>
+              <%= f.radio_button :insurance, :carefive %>
+              <%= f.label :insurance_carefive, '要介護５' %>
+          <tr>
+
+          <tr>
+            <th><%= f.label :prognosis, '転帰予定先' %></th>
+            <td><%= f.text_field :prognosis, size: 30, placeholder: '例) 自宅, 施設, 未定' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :requested_date, '入院希望日' %></th>
+            <td><%= f.date_field :requested_date %></td></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :admission_date, '受入予定日' %></th>
+            <td><%= f.date_field :admission_date %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :memo, '追記事項' %></th>
+            <td><%= f.text_field :memo, size: 70, placeholder: '追記事項があれば入力' %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :determination, '判定結果' %></th>
+            <td>
+              <%= f.select :determination, [
+                ['判定前', :preparing],
+                ['判定希望', :requested],
+                ['お断り', :declined],
+                ['日程調整中', :adjusting],
+                ['調整完了', :adjusted],
+                ['受入済', :accepted]
+              ], {}, class: 'custom-select' %>   
+            </td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :doctor_id, '担当医' %></th>
+            <td>
+              <%= f.collection_select(:doctor_id, Doctor.all, :id, :doctor_name, { include_blank: '選択してください' }, { class: 'custom-select' }) %>
+            </td>
+          </tr>
+
+       </table>
+
+        <p class="btn">
+            <%= f.submit "登録", class: 'submit-button'%>
+        </p>
+
+        <div class="con_pri">
+            <div class="box_pri">
+                <div class="box_tori">
+                    <h4>【内線番号】</h4>
+                    <p class="txt">・ベットコントロール担当:1234 </p>
+                    <p class="txt">・医療相談室:1111 </p>
+                    <p class="txt">・A科長:2222 </p>
+                </div>
+            </div>
+        </div>
+
+      </form>
+  </div>
+
+  <% end %>
+</div>
