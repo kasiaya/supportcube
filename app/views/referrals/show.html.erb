@@ -1,8 +1,7 @@
 <div class='referral-form'>
-  <h1>詳細表示</h1>
 
   <%=form_with model: @referral, local: true do |f|%>
-
+  <h1>案件詳細情報 (担当:<%= @referral.staff.staff_name %>)</h1>
 
     <div class="referral-form__field">
         <table class="formTable">

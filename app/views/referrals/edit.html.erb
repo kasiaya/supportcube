@@ -1,7 +1,7 @@
 <div class='referral-form'>
-  <h1>案件情報編集</h1>
 
   <%=form_with model: @referral, local: true do |f|%>
+  <h1>案件更新 (担当:<%= @referral.staff.staff_name %>)</h1>
 
     <% if @referral.errors.any? %>
       <div id="error_explanation">
