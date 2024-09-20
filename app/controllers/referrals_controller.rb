@@ -1,5 +1,6 @@
 class ReferralsController < ApplicationController
   before_action :set_staff, only: [:new, :create]
+  before_action :move_to_index, only: [:edit]
 
   def index
     @referrals = Referral.includes(:staff, :partner).all.active
@@ -40,6 +41,13 @@ class ReferralsController < ApplicationController
 
   def set_staff
     @staff = current_staff
+  end
+
+  def move_to_index
+    @referral = Referral.find(params[:id])
+    if current_staff != @referral.staff
+      redirect_to action: :index
+    end
   end
 
   def referral_params
