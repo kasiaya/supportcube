@@ -141,9 +141,12 @@
 
        </table>
 
+      <%# ログインしているスタッフが、案件を登録したスタッフと一致する場合にのみ編集ボタンを表示 %>
+      <% if current_staff == @referral.staff %>
         <p class="btn">
             <%= link_to '編集', edit_referral_path, class: 'edit-form__action-btn' %>
         </p>
+      <% end %>
 
         <div class="con_pri">
             <div class="box_pri">
