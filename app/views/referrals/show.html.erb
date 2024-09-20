@@ -1,8 +1,7 @@
 <div class='referral-form'>
-  <h1>詳細表示</h1>
 
   <%=form_with model: @referral, local: true do |f|%>
-
+  <h1>案件詳細情報 (担当:<%= @referral.staff.staff_name %>)</h1>
 
     <div class="referral-form__field">
         <table class="formTable">
@@ -130,11 +129,24 @@
             <td><%= @referral.doctor.doctor_name %></td>
           </tr>
 
+          <tr>
+            <th><%= f.label :created_at, '登録日' %></th>
+            <td><%= @referral.created_at.in_time_zone('Asia/Tokyo').strftime('%Y-%m-%d %H:%M:%S') %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :updated_at, '最終更新' %></th>
+            <td><%= @referral.updated_at.in_time_zone('Asia/Tokyo').strftime('%Y-%m-%d %H:%M:%S') %></td></td>
+          </tr>
+
        </table>
 
+      <%# ログインしているスタッフが、案件を登録したスタッフと一致する場合にのみ編集ボタンを表示 %>
+      <% if current_staff == @referral.staff %>
         <p class="btn">
-            <%= f.submit "編集", class: 'edit-button'%>
+            <%= link_to '編集', edit_referral_path, class: 'edit-form__action-btn' %>
         </p>
+      <% end %>
 
         <div class="con_pri">
             <div class="box_pri">

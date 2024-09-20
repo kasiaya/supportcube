@@ -1,5 +1,6 @@
 class ReferralsController < ApplicationController
   before_action :set_staff, only: [:new, :create]
+  before_action :move_to_index, only: [:edit]
 
   def index
     @referrals = Referral.includes(:staff, :partner).all.active
@@ -23,10 +24,30 @@ class ReferralsController < ApplicationController
     @referral = Referral.includes(:doctor, :partner).find(params[:id])
   end
 
+  def edit
+    @referral = Referral.includes(:doctor, :partner).find(params[:id])
+  end
+
+  def update
+    @referral = Referral.find(params[:id])
+    if @referral.update(referral_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_staff
     @staff = current_staff
+  end
+
+  def move_to_index
+    @referral = Referral.find(params[:id])
+    if current_staff != @referral.staff
+      redirect_to action: :index
+    end
   end
 
   def referral_params
