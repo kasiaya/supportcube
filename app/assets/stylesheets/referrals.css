@@ -199,6 +199,14 @@
   border: 0;
 }
 
+.delete-form__action-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  background-color: Gray;
+  border: 0;
+}
+
 .return-button {
   display: inline-block; /* インラインブロックに設定 */
   background: gray; /* ボタンの背景色 */

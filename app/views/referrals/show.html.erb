@@ -146,6 +146,10 @@
         <p class="btn">
             <%= link_to '編集', edit_referral_path, class: 'edit-form__action-btn' %>
         </p>
+
+        <p class="btn">
+            <%= link_to '削除', referral_path(@referral.id), data: {turbo_method: :delete}, class: 'delete-form__action-btn' %>
+        </p>
       <% end %>
 
         <div class="con_pri">
