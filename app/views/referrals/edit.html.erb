@@ -144,6 +144,16 @@
             </td>
           </tr>
 
+          <tr>
+            <th><%= f.label :created_at, '登録日' %></th>
+            <td><%= @referral.created_at.in_time_zone('Asia/Tokyo').strftime('%Y-%m-%d %H:%M:%S') %></td>
+          </tr>
+
+          <tr>
+            <th><%= f.label :updated_at, '最終更新' %></th>
+            <td><%= @referral.updated_at.in_time_zone('Asia/Tokyo').strftime('%Y-%m-%d %H:%M:%S') %></td></td>
+          </tr>
+
        </table>
 
         <p class="btn">
