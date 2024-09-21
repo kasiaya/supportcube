@@ -3,7 +3,8 @@ class ReferralsController < ApplicationController
   before_action :move_to_index, only: [:edit]
 
   def index
-    @referrals = Referral.includes(:staff, :partner).all.active
+    @before_referrals = Referral.includes(:staff, :partner).all.order(created_at: :desc)
+    @after_referrals = Referral.includes(:staff, :partner).all.active_determination.order(created_at: :desc)
   end
 
   def new
