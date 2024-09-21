@@ -54,7 +54,7 @@
                 </tr>
             </thead>
             <tbody>
-            <% @referrals.each do |referral| %>
+            <% @before_referrals.each do |referral| %>
                 <tr>
                   <%# 調整状況 %>
                     <td> 
@@ -98,7 +98,7 @@
                           リハビリ
                         <% elsif referral.purpose == 'respite' %>
                           レスパイト
-                        <% elsif referral.purpose == 'waiting' %>
+                        <% elsif referral.purpose == 'other' %>
                           その他
                         <% end %>
                       </td>
@@ -132,7 +132,7 @@
             </tr>
         </thead>
         <tbody>
-          <% @referrals.each do |referral| %>
+          <% @after_referrals.each do |referral| %>
             <tr>
               <%# ベッド準備 %>
                 <td>
@@ -174,7 +174,7 @@
                       リハビリ
                     <% elsif referral.purpose == 'respite' %>
                       レスパイト
-                    <% elsif referral.purpose == 'waiting' %>
+                    <% elsif referral.purpose == 'other' %>
                       その他
                     <% end %>
                   </td>
