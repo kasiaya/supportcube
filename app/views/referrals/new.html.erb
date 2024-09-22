@@ -128,9 +128,9 @@
             <td>
               <%= f.select :determination, [
                 ['判定前', :preparing],
-                ['判定希望', :requested],
+                ['医師判断', :requested],
                 ['お断り', :declined],
-                ['日程調整中', :adjusting],
+                ['調整中', :adjusting],
                 ['調整完了', :adjusted],
                 ['受入済', :accepted]
               ], {}, class: 'custom-select' %>   

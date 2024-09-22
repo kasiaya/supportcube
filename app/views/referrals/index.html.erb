@@ -140,11 +140,11 @@
                   <% if referral.determination == 'preparing' %>
                     判定前
                   <% elsif referral.determination == 'requested' %>
-                    判定希望
+                    医師判断
                   <% elsif referral.determination == 'declined' %>
                     お断り
                   <% elsif referral.determination == 'adjusting' %>
-                    日程調整中
+                    調整中
                   <% elsif referral.determination == 'adjusted' %>
                     調整完了
                   <% elsif referral.determination == 'accepted' %>
