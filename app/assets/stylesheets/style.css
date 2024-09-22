@@ -169,14 +169,14 @@ a {
 /* 判定前セクションのスタイル */
 
 .before-judge {
-    background-color: #fafbfb; /* 背景色 */
-    border-bottom: 1px solid #dcdcdc; /* 最後消す。下に境界線を追加 */
+    background-color: #ffffff;
+    border-bottom: 1px solid #dcdcdc;
 }
 
 /* 判定後セクションのスタイル */
 
 .after-judge {
-    background-color: #fafbfb; /* 背景色 */
+    background-color: #ffffff; 
 }
 
 /*********************************/
