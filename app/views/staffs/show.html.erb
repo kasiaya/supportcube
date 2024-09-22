@@ -39,6 +39,10 @@
                           返答待ち
                         <% elsif referral.status == 'canceled' %>
                           キャンセル
+                        <% elsif referral.status == 'ongoing' %>
+                          対応中
+                        <% elsif referral.status == 'closing' %>
+                          対応済
                         <% end %>
                     </td>
                   <%# 医療期間名 %>
