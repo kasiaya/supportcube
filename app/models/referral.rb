@@ -7,7 +7,7 @@ class Referral < ApplicationRecord
   enum :history,       { returning: 0, new_entry: 1 }
   enum :purpose,       { rehabilitation: 0, respite: 1, other: 2 }
   enum :insurance,     { no_insurance: 0, supportone: 1, supporttwo: 2, careone: 3, caretwo: 4, carethree: 5, carefour: 6, carefive: 7 }
-  enum :status,        { hearing: 0, pending: 1, waiting: 2, canceled: 3 }
+  enum :status,        { hearing: 0, pending: 1, waiting: 2, canceled: 3, ongoing: 4, closing: 5 }
   enum :determination, { preparing: 0, requested: 1, declined: 2, adjusting: 3, adjusted: 4, accepted: 5 }
 
   validates :patient_name,  presence: true
@@ -22,6 +22,6 @@ class Referral < ApplicationRecord
   validates :doctor,        presence: true
   validates :partner,       presence: true
 
-  scope :active_statuses, -> { where.not(status: ['waiting', 'canceled']) }
-  scope :active_determination, -> { where.not(determination: ['preparing', 'accepted']) }
+  scope :active_statuses, -> { where(status: ['hearing','pending']) }
+  scope :active_determinations, -> { where(determination: ['requested', 'adjusting', 'adjusted']) }
 end

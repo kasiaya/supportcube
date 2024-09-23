@@ -11,6 +11,12 @@ class StaffsController < ApplicationController
     end
   end
 
+  def show
+    @staff = Staff.find(params[:id])
+    @referrals = @staff.referrals
+    @current_staff = current_staff
+  end
+
   private
 
   def set_staff

@@ -1,0 +1,85 @@
+<div class='referral-form'>
+
+        <div class="main-content">
+        <section class="before-judge">
+            <h2>調整案件一覧</h2>
+            <hr class="divider">
+        <table>
+            <thead>
+                <tr>
+                    <th>担当</th>
+                    <th>登録日</th>
+                    <th>詳細</th>
+                    <th>状況</th>
+                    <th>紹介元</th>
+                    <th>患者名</th>
+                    <th>年齢</th>
+                    <th>性別</th>
+                    <th>希望時期</th>
+                    <th>受入状況</th>
+                    <th>受入予定</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @referrals.each do |referral| %>
+                <tr>
+                  <%# 担当者 %>
+                    <td><%= referral.staff.staff_name %></td>
+                  <%# 登録日 %>
+                    <td><%= referral.created_at.in_time_zone('Asia/Tokyo').strftime('%m/%d') %></td>
+                  <%# 詳細ボタン %>
+                    <td><%= link_to '詳細', referral_path(referral.id), class: 'btn-detail' %></td>
+                  <%# 調整状況 %>
+                    <td> 
+                        <% if referral.status == 'hearing' %>
+                          聴取中
+                        <% elsif referral.status == 'pending' %>
+                          判定待ち
+                        <% elsif referral.status == 'waiting' %>
+                          返答待ち
+                        <% elsif referral.status == 'canceled' %>
+                          キャンセル
+                        <% elsif referral.status == 'ongoing' %>
+                          対応中
+                        <% elsif referral.status == 'closing' %>
+                          対応済
+                        <% end %>
+                    </td>
+                  <%# 医療期間名 %>
+                    <td><%= referral.partner.institution_name %></td>
+                  <%# 患者名 %>
+                    <td><%= referral.patient_name %></td>
+                  <%# 年齢 %>
+                    <td><%= referral.age %></td>
+                  <%# 性別 %>
+                    <td>
+                        <% if referral.gender == 'male' %>
+                          男性
+                        <% elsif referral.gender == 'female' %>
+                          女性
+                        <% end %>
+                    </td>
+                  <%# 入院希望日 %>
+                    <td><%= referral.requested_date %></td>
+                  <%# 調整状況 %>
+                    <td>
+                        <% if referral.determination == 'preparing' %>
+                          判定前
+                        <% elsif referral.determination == 'requested' %>
+                          医師判断
+                        <% elsif referral.determination == 'declined' %>
+                          お断り
+                        <% elsif referral.determination == 'adjusting' %>
+                          調整中
+                        <% elsif referral.determination == 'adjusted' %>
+                          調整完了
+                        <% elsif referral.determination == 'accepted' %>
+                          受入済
+                        <% end %>
+                    </td>
+                  <%# 受入予定日 %>
+                    <td><%= referral.admission_date %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
