@@ -10,7 +10,7 @@
 /* 左側 */
 .side-menu {
   width: 200px;
-  background-color: #b8b4b4;
+  background-color: #EDEAE4;
 }
 
 /* 右側 */
@@ -28,7 +28,7 @@
 /* 左上 */
 .side-header {
   height: 100px;
-  background-color: #332c2c;
+  background-color: #263859;
   display: flex;
   align-items: center;
 }
@@ -40,7 +40,7 @@
 /* 右上 */
 .main-header {
   height: 100px;
-  background-color: #595959;
+  background-color: #5A7194;
   border-bottom: 1px solid #595959;
   display: flex;
   padding: 0 40px;
@@ -206,7 +206,7 @@ th, td {
 
 th {
   color: whitesmoke;
-  background-color: #858a8b; /* ヘッダーの背景色 */
+  background-color: #787979; /* ヘッダーの背景色 */
   font-weight: bold;
 }
 
