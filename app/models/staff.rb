@@ -19,4 +19,8 @@ class Staff < ApplicationRecord
   def password_required?
     new_record?
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["id", "staff_name", "staff_name_kana", "email", "department", "created_at", "updated_at"]  # 検索を許可する属性
+  end
 end

@@ -24,4 +24,13 @@ class Referral < ApplicationRecord
 
   scope :active_statuses, -> { where(status: ['hearing','pending']) }
   scope :active_determinations, -> { where(determination: ['requested', 'adjusting', 'adjusted']) }
+
+  def self.ransackable_associations(auth_object = nil)
+    ["doctor", "partner", "staff"]  # 検索を許可する関連付け
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["patient_name", "partner_institution_name"]
+  end
+
 end

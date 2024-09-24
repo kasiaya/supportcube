@@ -9,4 +9,8 @@ class Partner < ApplicationRecord
   #医療機関分類の選択が「---」の時は保存できないようにする
   validates :institution_category_id, numericality: { other_than: 1 , message: "can't be blank"} 
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "institution_category_id", "institution_name", "updated_at"]
+  end
+
 end

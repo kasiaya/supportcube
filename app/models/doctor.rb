@@ -8,4 +8,9 @@ class Doctor < ApplicationRecord
 
   #診療科の選択が「---」の時は保存できないようにする
   validates :specialty_id, numericality: { other_than: 1 , message: "can't be blank"} 
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "id", "institution_category_id", "institution_name", "updated_at"]
+  end
+  
 end

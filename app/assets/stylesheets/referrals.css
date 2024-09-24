@@ -229,3 +229,28 @@
 .referral-form__field table tr td.radio .field_with_errors {
   display: contents;
 }
+
+
+/* =========================== */
+/* 検索フォーム */
+/* =========================== */
+
+.search-field {
+  display: flex; /* フレックスボックスを使用 */
+  align-items: center; /* 縦方向のセンタリング */
+  margin-bottom: 10px; /* フィールド間のスペース */
+}
+
+.search-field label {
+  margin-right: 5px; /* ラベルと入力フォームの間に隙間を追加 */
+  width: 100px; /* ラベルの幅を設定（必要に応じて調整） */
+}
+
+.search-field input[type="text"],
+.search-field select {
+  width: 200px; /* 横幅を設定 */
+  padding: 5px; /* パディングを設定 */
+  box-sizing: border-box; /* パディングを含めてサイズを計算 */
+  height: 30px; /* 高さを設定（必要に応じて調整） */
+}
+
