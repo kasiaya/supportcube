@@ -47,7 +47,7 @@ class ReferralsController < ApplicationController
   def search
     @q = Referral.ransack(params[:q])
     @referrals = @q.result.includes(:staff, :partner)
-  
+
     @staffs = Staff.all
     @partners = Partner.all
     # @referrals = @q.result(distinct: true)
@@ -61,13 +61,13 @@ class ReferralsController < ApplicationController
 
   def move_to_index
     @referral = Referral.find(params[:id])
-    if current_staff != @referral.staff
-      redirect_to action: :index
-    end
+    return unless current_staff != @referral.staff
+
+    redirect_to action: :index
   end
 
   def referral_params
-    params.require(:referral).permit(:patient_name, :age, :gender, :history, :purpose, :adl, :insurance, :prognosis, :requested_date, :admission_date, :status, :determination, :memo, :Staff_id, :partner_id, :doctor_id)
+    params.require(:referral).permit(:patient_name, :age, :gender, :history, :purpose, :adl, :insurance, :prognosis,
+                                     :requested_date, :admission_date, :status, :determination, :memo, :Staff_id, :partner_id, :doctor_id)
   end
-  
 end

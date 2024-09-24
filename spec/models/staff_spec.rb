@@ -13,7 +13,7 @@ RSpec.describe Staff, type: :model do
     end
     context '新規登録できないとき' do
       it '職員IDが空では登録できない' do
-        @staff.employee_id = ""
+        @staff.employee_id = ''
         @staff.valid?
         expect(@staff.errors.full_messages).to include("Employee can't be blank")
       end
@@ -25,17 +25,17 @@ RSpec.describe Staff, type: :model do
         expect(another_staff.errors.full_messages).to include('Employee has already been taken')
       end
       it '部署が空では登録できない' do
-        @staff.department = ""
+        @staff.department = ''
         @staff.valid?
         expect(@staff.errors.full_messages).to include("Department can't be blank")
       end
       it 'スタッフ名が空では登録できない' do
-        @staff.staff_name = ""
+        @staff.staff_name = ''
         @staff.valid?
         expect(@staff.errors.full_messages).to include("Staff name can't be blank")
       end
       it 'スタッフ名のフリガナが空では登録できない' do
-        @staff.staff_name_kana = ""
+        @staff.staff_name_kana = ''
         @staff.valid?
         expect(@staff.errors.full_messages).to include("Staff name kana can't be blank")
       end
@@ -45,7 +45,7 @@ RSpec.describe Staff, type: :model do
         expect(@staff.errors.full_messages).to include('Staff name kana is invalid. Input full-width katakana character')
       end
       it 'メールアドレスが空では登録できない' do
-        @staff.email = ""
+        @staff.email = ''
         @staff.valid?
         expect(@staff.errors.full_messages).to include("Email can't be blank")
       end
@@ -62,7 +62,7 @@ RSpec.describe Staff, type: :model do
         expect(@staff.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが空では登録できない' do
-        @staff.password = ""
+        @staff.password = ''
         @staff.valid?
         expect(@staff.errors.full_messages).to include("Password can't be blank")
       end

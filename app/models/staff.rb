@@ -5,13 +5,14 @@ class Staff < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :referrals
 
-  validates :employee_id, presence: true, uniqueness: true, format: { with: /\A\d{8}\z/, message: "must be exactly 8 digits" }
+  validates :employee_id, presence: true, uniqueness: true, format: { with: /\A\d{8}\z/, message: 'must be exactly 8 digits' }
   validates :department, presence: true
   validates :staff_name, presence: true,
                          format: { with: /\A[ぁ-んァ-ヶ一-龥々〆〤ー]+\z/, message: 'is invalid. Input full-width characters' }
-  validates :staff_name_kana, presence: true, 
-  format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana character' }
-  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'must contain both letters and numbers' },if: :password_required?
+  validates :staff_name_kana, presence: true,
+                              format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana character' }
+  validates :password,
+            format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]+\z/, message: 'must contain both letters and numbers' }, if: :password_required?
 
   private
 
@@ -20,7 +21,7 @@ class Staff < ApplicationRecord
     new_record?
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["id", "staff_name", "staff_name_kana", "email", "department", "created_at", "updated_at"]  # 検索を許可する属性
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id staff_name staff_name_kana email department created_at updated_at] # 検索を許可する属性
   end
 end
