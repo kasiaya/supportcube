@@ -44,6 +44,11 @@ class ReferralsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @q = Referral.ransack(params[:q])
+    @referrals = @q.result
+  end
+
   private
 
   def set_staff
