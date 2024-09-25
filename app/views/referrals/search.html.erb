@@ -1,32 +1,45 @@
 <div class='referral-form'>
-  <h1>検索画面</h1>
 
   <%= search_form_for @q, url: search_referrals_path, html: { id: "detailed-search-form" } do |f| %>
-    <div class="search-field">
-      <%= f.label :patient_name_cont, '患者名' %>
-      <br>
-      <%= f.text_field :patient_name_cont, placeholder: '患者名' %>
+
+  <div class='search-form'>
+    <div class='search-form__header'>
+        <h2>案件検索</h2>
     </div>
+    <div class='search-form__content'>
+      <div class='search-form__left'>
+          <div class="search-field">
+            <%= f.label :staff_id_eq, '担当者' %>
+            <br>
+            <%= f.collection_select :staff_id_eq, @staffs, :id, :staff_name, include_blank: '選択してください' %>
+          </div>
+            <%= f.submit '検索' %>
+      </div>
 
-      <div class="search-field">
-        <%= f.label :staff_id_eq, '担当スタッフ' %>
-        <br>
-        <%= f.collection_select :staff_id_eq, @staffs, :id, :staff_name, include_blank: '選択してください' %>
+      <div class='search-form__center'>
+          
+          <div class="search-field">
+            <%= f.label :partner_id, '紹介元' %>
+            <br>
+            <%= f.collection_select :partner_id_eq, @partners, :id, :institution_name, include_blank: '選択してください' %>
+          </div>
       </div>
-      
-      <div class="search-field">
-        <%= f.label :partner_id, '紹介元' %>
-        <br>
-        <%= f.collection_select :partner_id_eq, @partners, :id, :institution_name, include_blank: '選択してください' %>
+
+      <div class='search-form__right'>
+          <div class="search-field">
+            <%= f.label :patient_name_cont, '患者名' %>
+            <br>
+            <%= f.text_field :patient_name_cont, placeholder: '患者名' %>
+          </div>
       </div>
-    
-    <%= f.submit '検索' %> 
+    </div>
+  </div>
   <% end %>
-
-        <div class="main-content">
-        <section class="before-judge">
-          <h2>調整案件一覧</h2>
-            <hr class="divider">
+        
+  <div class="main-content">
+  <section class="before-judge">
+    <h2>調整案件</h2>
+      <hr class="divider">
         <table>
             <thead>
                 <tr>
@@ -105,7 +118,8 @@
                     <td><%= referral.admission_date %></td>
                 </tr>
               <% end %>
-
             </tbody>
           </table>
+    </div>
+</div>
   

@@ -238,19 +238,75 @@
 .search-field {
   display: flex; /* フレックスボックスを使用 */
   align-items: center; /* 縦方向のセンタリング */
-  margin-bottom: 10px; /* フィールド間のスペース */
+  text-align: center; /* テキストを中央に寄せる */
+  margin-bottom: 20px; /* フィールド間のスペース */
 }
 
 .search-field label {
-  margin-right: 5px; /* ラベルと入力フォームの間に隙間を追加 */
   width: 100px; /* ラベルの幅を設定（必要に応じて調整） */
 }
 
 .search-field input[type="text"],
 .search-field select {
-  width: 200px; /* 横幅を設定 */
+  width: 150px; /* 横幅を設定 */
   padding: 5px; /* パディングを設定 */
   box-sizing: border-box; /* パディングを含めてサイズを計算 */
   height: 30px; /* 高さを設定（必要に応じて調整） */
 }
 
+
+
+.search-form {
+  display: flex;
+  flex-direction: column; /* 縦に並べる */
+  align-items: center; /* 中央揃え */
+  padding: 10px;
+  background-color: #f9f9f9; /* 背景色 */
+  border-radius: 8px; /* 角を丸くする */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影を追加 */
+  margin-top: 100px; /* 上からのスペースを追加 */
+  max-width: 880px; /* 最大幅を設定（必要に応じて調整） */
+  margin: 20px auto; /* 上下マージンを自動で中央に配置 */
+}
+
+.search-form__header {
+  text-align: center; /* ヘッダーを中央揃え */
+  margin-bottom: 5px; /* 下にスペースを追加 */
+  padding: 16px 0; /* 上下のパディングを追加して縦幅を広げる */
+  font-size: 1.2em; /* フォントサイズを調整（必要に応じて） */
+}
+
+.search-form__content {
+  display: flex; /* 横並びにする */
+  width: 100%; /* コンテンツの幅を100%に */
+}
+
+.search-form__left,
+.search-form__center,
+.search-form__right {
+  flex: 1; /* 各セクションに均等な幅を割り当てる */
+  padding: 10px; /* パディングを追加してスペースを作る */
+}
+
+input[type="submit"] {
+  background-color: #263859; /* ボタンの背景色 */
+  color: #fff; /* ボタンの文字色 */
+  border: none; /* 枠線を削除 */
+  padding: 10px 15px; /* ボタンの内側の余白 */
+  margin-left: 20px;
+  margin-bottom: 16px;
+  cursor: pointer; /* カーソルをポインターに */
+  transition: background-color 0.3s; /* ホバー時のトランジション */
+}
+
+input[type="checkbox"] {
+  height: 20px; /* チェックボックスの高さ */
+  width: 20px; /* チェックボックスの幅 */
+  margin-right: 5px; /* ラベルとの間にスペース */
+  cursor: pointer; /* カーソルをポインターに */
+  transform: scale(0.8); /* チェックボックスを80%に縮小 */
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* ホバー時の背景色 */
+}

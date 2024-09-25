@@ -46,11 +46,10 @@ class ReferralsController < ApplicationController
 
   def search
     @q = Referral.ransack(params[:q])
-    @referrals = @q.result.includes(:staff, :partner)
+    @referrals = @q.result.includes(:staff, :partner).order(created_at: :desc)
 
     @staffs = Staff.all
     @partners = Partner.all
-    # @referrals = @q.result(distinct: true)
   end
 
   private
