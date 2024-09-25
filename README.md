@@ -9,7 +9,7 @@ Support Cube
 また、可視化機能により各プロセスの進捗状況をリアルタイムで共有できる環境を提供します。
 
 
-<img width="480px" alt="トップページ" src="https://i.gyazo.com/7b9157f142f5e84be19f1161e6841f93.png">
+<img width="480px" alt="トップページ" src="https://i.gyazo.com/db9b061ebc480fcf5fa9b9637ca0fb58.png">
 
 # URL
 http://43.206.35.125
@@ -24,18 +24,21 @@ http://43.206.35.125
 - 紹介元マスター登録機能
 - 医師マスター登録機能
 - 案件登録・詳細表示・編集機能
-
+- 担当者別調整案件一覧
+- 案件検索機能
 
 # 利用方法
 - 電話で受入れ相談を受けた時点で、情報を案件登録画面に入力します。
-<img width="480px" alt="案件登録" src="https://i.gyazo.com/ccdb13a3d94ccb881802a0c7d625fb3e.gif">
+<img width="480px" alt="案件登録" src="https://i.gyazo.com/c2d74778527be7241fd719bf3283922c.gif">
   
 - 案件ごとの「調整状況」をもとに、判定会議で協議予定の案件が抽出され、トップ画面の上部の「判定前」の一覧に表示されます。
-<img width="480px" alt="詳細確認" src="https://i.gyazo.com/facbe4152cc824117abb9e6464dce9db.gif">
+<img width="480px" alt="詳細確認" src="https://i.gyazo.com/63cb674a5c790f366d2047bfc9135c54.gif">
   
 - 判定会議で協議後、案件詳細情報の「判定結果」を更新することで、トップ画面の下部「判定後」の欄に表示されます。受入予定患者が一覧として表示されることで、全体のバランスを見ながら円滑に病床管理を進めることが可能になります。
-<img width="480px" alt="ステータス更新" src="https://i.gyazo.com/4c667f1315e60d5be4e94bd6e264b3df.gif">
+<img width="480px" alt="ステータス更新" src="https://i.gyazo.com/f3fb12d7c0405aabc8b4a5ee6f333fa5.gif">
 
+- これまでに相談を受けた案件一覧を確認・検索したい場合は、トップ画面のサイドバーにある「検索」ボタンを押すと、一覧が表示され条件を絞ることが可能です。
+<img width="480px" alt="検索機能" src="https://i.gyazo.com/e2dd386cd047b5e5f5283d0d180c153e.gif">
 
 # アプリケーションを作成した背景
 
@@ -47,23 +50,19 @@ http://43.206.35.125
 
 
 # 実装予定の機能
-- 検索機能
 - カレンダー機能
+- コメント登録機能
 
 # 開発環境
 
 - フロントエンド
-  - HTML CSS
+  - HTML
+  - CSS
 - バックエンド
+  - Ruby 3.2.0
   - Ruby on Rails 7.0.8.4
-
-# ローカルでの動作方法
-
-以下のコマンドを順に実行  
-% git clone https://github.com/kasiaya/supportcube.git  
-% cd supportcube  
-% yarn  
-% yarn dev  
+- デプロイ環境
+  - AWS
 
 # 工夫した点
 
