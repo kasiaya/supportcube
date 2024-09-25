@@ -13,12 +13,12 @@ RSpec.describe Doctor, type: :model do
     end
     context '新規登録できないとき' do
       it '医療機関名が空では登録できない' do
-        @doctor.doctor_name = ""
+        @doctor.doctor_name = ''
         @doctor.valid?
         expect(@doctor.errors.full_messages).to include("Doctor name can't be blank")
       end
       it '医療機関分類が空では登録できない' do
-        @doctor.specialty_id = ""
+        @doctor.specialty_id = ''
         @doctor.valid?
         expect(@doctor.errors.full_messages).to include("Specialty can't be blank")
       end

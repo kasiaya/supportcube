@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :staffs
 
   root to: "referrals#index"
-  resources :referrals
+  resources :referrals do
+    collection do
+      get 'search'
+    end
+  end
   resources :staffs, only: [:edit, :update, :show]
   resources :partners, only: [:new, :create]
   resources :doctors, only: [:new, :create]

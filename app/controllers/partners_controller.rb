@@ -17,5 +17,4 @@ class PartnersController < ApplicationController
   def partner_params
     params.require(:partner).permit(:institution_name, :institution_category_id)
   end
-
 end

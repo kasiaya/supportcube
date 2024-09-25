@@ -6,12 +6,14 @@ class Referral < ApplicationRecord
   enum :gender,        { male: 0, female: 1 }
   enum :history,       { returning: 0, new_entry: 1 }
   enum :purpose,       { rehabilitation: 0, respite: 1, other: 2 }
-  enum :insurance,     { no_insurance: 0, supportone: 1, supporttwo: 2, careone: 3, caretwo: 4, carethree: 5, carefour: 6, carefive: 7 }
+  enum :insurance,
+       { no_insurance: 0, supportone: 1, supporttwo: 2, careone: 3, caretwo: 4, carethree: 5, carefour: 6, carefive: 7 }
   enum :status,        { hearing: 0, pending: 1, waiting: 2, canceled: 3, ongoing: 4, closing: 5 }
   enum :determination, { preparing: 0, requested: 1, declined: 2, adjusting: 3, adjusted: 4, accepted: 5 }
 
   validates :patient_name,  presence: true
-  validates :age,           presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 130 }
+  validates :age,           presence: true,
+                            numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 130 }
   validates :gender,        presence: true
   validates :history,       presence: true
   validates :purpose,       presence: true
@@ -22,6 +24,14 @@ class Referral < ApplicationRecord
   validates :doctor,        presence: true
   validates :partner,       presence: true
 
-  scope :active_statuses, -> { where(status: ['hearing','pending']) }
-  scope :active_determinations, -> { where(determination: ['requested', 'adjusting', 'adjusted']) }
+  scope :active_statuses, -> { where(status: %w[hearing pending]) }
+  scope :active_determinations, -> { where(determination: %w[requested adjusting adjusted]) }
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[doctor partner staff] # 検索を許可する関連付け
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[patient_name partner_institution_name]
+  end
 end

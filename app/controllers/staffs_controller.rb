@@ -26,5 +26,4 @@ class StaffsController < ApplicationController
   def staff_params
     params.require(:staff).permit(:staff_name, :staff_name_kana, :email)
   end
-
 end
