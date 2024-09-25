@@ -207,6 +207,17 @@
   border: 0;
 }
 
+.update-button {
+  display: inline-block; /* インラインブロックに設定 */
+  background: #263859; /* ボタンの背景色 */
+  padding: 0.7em 3.2em; /* 内部の余白 */
+  color: white; /* テキストの色 */
+  text-decoration: none; /* 下線を消す */
+  border: none; /* ボーダーをなくす */
+  cursor: pointer; /* カーソルをポインターに */
+  transition: all 0.4s; /* トランジション */
+}
+
 .return-button {
   display: inline-block; /* インラインブロックに設定 */
   background: gray; /* ボタンの背景色 */
