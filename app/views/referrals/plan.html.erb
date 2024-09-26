@@ -8,7 +8,7 @@
         <ul class="referrals-list">
             <% referrals.each do |referral| %>
               <li class="referral-item" data-referral-id="<%= referral.id %>">
-                <%= referral.patient_name %>
+                <%= link_to referral.patient_name, referral_path(referral) %>
               </li>
             <% end %>
         </ul>
