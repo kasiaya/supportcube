@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :referrals do
     collection do
       get 'search'
+      get 'plan'
     end
   end
   resources :staffs, only: [:edit, :update, :show]

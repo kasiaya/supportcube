@@ -52,6 +52,10 @@ class ReferralsController < ApplicationController
     @partners = Partner.all
   end
 
+  def plan
+    # @referrals = Referral.all
+  end
+
   private
 
   def set_staff
