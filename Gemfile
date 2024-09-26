@@ -88,3 +88,4 @@ group :production do
 end
 
 gem 'ransack'
+gem 'simple_calendar'
