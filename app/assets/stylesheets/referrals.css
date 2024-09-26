@@ -321,3 +321,44 @@ input[type="checkbox"] {
 input[type="submit"]:hover {
   background-color: #0056b3; /* ホバー時の背景色 */
 }
+
+
+/* =========================== */
+/* カレンダー機能 */
+/* =========================== */
+
+.calendar-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.day {
+  width: 100px; /* 固定幅 */
+  height: 80px; /* 縦幅を小さく */
+  overflow-y: auto;
+  position: relative; /* 子要素の位置を安定させる */
+}
+
+.has-referrals {
+  padding: 2px;
+}
+
+.day:not(.has-referrals) {
+  padding: 5px;
+}
+
+.referrals-list {
+  list-style-type: none;
+}
+
+.referral-item {
+  font-size: 12px;
+  padding: 2px;
+  margin: 5px;
+}
+
+.no-referrals {
+  color: #999;
+  font-style: italic;
+}
+

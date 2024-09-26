@@ -1,1 +1,19 @@
-<h1>Referral Plan</h1>
+<div class='referral-form'>
+  <h1>受入れ予定カレンダー</h1>
+
+  <div class="calendar-container">
+    <%= month_calendar(events: @referrals, attribute: :admission_date) do |date, referrals| %>
+      <div class="day <%= 'has-referrals' if referrals.any? %>">
+        <time datetime="<%= date %>"><%= date.day %></time>
+        <ul class="referrals-list">
+            <% referrals.each do |referral| %>
+              <li class="referral-item" data-referral-id="<%= referral.id %>">
+                <%= referral.patient_name %>
+              </li>
+            <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>  
+</div>
+
