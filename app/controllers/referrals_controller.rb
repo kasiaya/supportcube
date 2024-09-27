@@ -58,7 +58,7 @@ class ReferralsController < ApplicationController
   end
 
   def start_time
-    admission_date # date型のカラムを返す
+    admission_date
   end
 
   private

@@ -332,6 +332,17 @@ input[type="submit"]:hover {
   margin: 0 auto;
 }
 
+.calendar-heading {
+  margin: 30px 0 0 10px;
+}
+
+.calendar-heading nav a {
+  color: #333; /* テキスト色 */
+  text-decoration: none; /* 下線を消す */
+  padding-right: 10px; /* パディングを追加 */
+  margin-top: 20px; /* 上部に余白を追加 */
+}
+
 .day {
   width: 100px; /* 固定幅 */
   height: 80px; /* 縦幅を小さく */
@@ -362,3 +373,17 @@ input[type="submit"]:hover {
   font-style: italic;
 }
 
+.previous-month,
+.next-month {
+  color: #999; /* グレーの文字色 */
+}
+
+.today {
+  background-color: #fff9c4; 
+  font-weight: bold;
+}
+
+.no-hover table tr:hover {
+  background-color: inherit; 
+  color: inherit;
+}
