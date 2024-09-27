@@ -52,6 +52,15 @@ class ReferralsController < ApplicationController
     @partners = Partner.all
   end
 
+  def plan
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @referrals = Referral.where(admission_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+  end
+
+  def start_time
+    admission_date
+  end
+
   private
 
   def set_staff

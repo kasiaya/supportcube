@@ -1,0 +1,20 @@
+<div class='referral-form'>
+  <h1>受入れ予定カレンダー</h1>
+
+<body class="no-hover">
+  <div class="calendar-container">
+    <%= month_calendar(events: @referrals, attribute: :admission_date) do |date, referrals| %>
+      <div class="day <%= 'has-referrals' if referrals.any? %> <%= 'previous-month' if date < Date.today.beginning_of_month %> <%= 'next-month' if date > Date.today.end_of_month %> <%= 'today' if date == Date.today %>">
+        <time datetime="<%= date %>"><%= date.day %></time>
+        <ul class="referrals-list">
+            <% referrals.each do |referral| %>
+              <li class="referral-item" data-referral-id="<%= referral.id %>">
+                <%= link_to referral.patient_name, referral_path(referral) %>
+              </li>
+            <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>  
+</body>
+
