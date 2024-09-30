@@ -88,6 +88,7 @@ http://43.206.35.125
 ### Association
 
 - has_many :referrals
+- has_many :comments
 
 
 ## referrals テーブル
@@ -116,6 +117,7 @@ http://43.206.35.125
 - belongs_to :staff
 - belongs_to :partner
 - belongs_to :doctor
+- has_many :comments
 
 
 ##  partners テーブル
@@ -142,5 +144,17 @@ http://43.206.35.125
 ### Association
 
 - has_many :referrals
+
+
+##  comments テーブル
+
+| Column                   | Type       | Options     |
+| ------------------------ | ---------- | ----------- |
+| text                     | text       | null: false |
+
+### Association
+
+- belongs_to :staff
+- belongs_to :referral
 
  -->
