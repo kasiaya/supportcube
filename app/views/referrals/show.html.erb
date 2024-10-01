@@ -143,6 +143,29 @@
 
        </table>
 
+
+      <div class="container">
+        <div class="comment-form">
+          <textarea placeholder="コメントする" rows="2"></textarea>
+          <button type="button" class="comment-button">コメント登録</button>
+        </div>
+
+        <div class="comments">
+          <h4>＜コメント一覧＞</h4>
+          <div class="comment">
+          </div>
+          <div class="comment">
+            <strong><span class="username">ユーザー1</span>:</strong>
+            <p>これはコメントの例です。</p>
+          </div>
+          <div class="comment">
+            <strong><span class="username">ユーザー2</span>:</strong>
+            <p>これはコメントの例です。</p>
+          </div>
+        </div>
+      </div>
+
+
       <%# ログインしているスタッフが、案件を登録したスタッフと一致する場合にのみ編集ボタンを表示 %>
       <% if current_staff == @referral.staff %>
         <p class="btn">
